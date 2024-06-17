@@ -392,13 +392,8 @@ router.post("/users", Register);
 router.post("/login", Login);
 router.delete("/logout", Logout);
 
-// Serve login and register HTML pages
 router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend/login.html"));
-});
-
-router.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend/register.html"));
+  res.json({ msg: "Hello" });
 });
 
 export default router;
