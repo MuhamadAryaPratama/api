@@ -386,19 +386,15 @@ router.get("/papua", getPapuaMenu);
 router.delete("/papua/:id", deletePapuaMenu);
 router.put("/papua/:id", editPapuaMenu);
 
-// User routes
-router.get("/dashboard", getUsers);
-router.post("/users", Register);
+// Define route to show "Hallo"
+router.get("/", (req, res) => {
+  res.send("Hallo");
+});
+
+// Other routes for user actions
+router.get("/users", getUsers);
+router.post("/register", Register);
 router.post("/login", Login);
 router.delete("/logout", Logout);
-
-// Serve login and register HTML pages
-router.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend/login.html"));
-});
-
-router.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend/register.html"));
-});
 
 export default router;
